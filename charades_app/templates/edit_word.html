@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ word.name }}</h1>
+
+<p>
+    <strong>Category</strong>: 
+    {{ word.category }},
+</p>
+
+{% if word.hint %}
+    <p>
+        <strong>Hint</strong>: {{ word.hint }}
+    </p>
+{% endif %}
+
+{% if current_user.is_authenticated %}
+
+    <form method="POST" action="{{ url_for('main.word_detail', word_id=word.id) }}">
+        {{ form.csrf_token }}
+        <fieldset>
+            <legend>Edit this word</legend>
+
+            {{ form.name.label }}
+            {{ form.name }}
+            
+            {{ form.hint.label }}
+            {{ form.hint(placeholder="Enter helpful hints for those who may not know the word") }}
+             
+            {{ form.category.label }}
+            {{ form.category }}
+                       
+            {{ form.submit }}
+
+        </fieldset>
+    </form>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="POST" action="{{ url_for('main.create_book') }}">
+    {{ form.csrf_token }}
+    <fieldset>
+        <legend>Enter a word</legend>
+
+        {{ form.name.label }}
+        {{ form.name }}
+        <ul>
+        {% for error in form.name.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
+        
+        {{ form.hint.label }}
+        {{ form.hint(placeholder="Enter helpful hints for those who may not know the word") }}
+        <ul>
+        {% for error in form.hint.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
+        
+        {{ form.category.label }}
+        {{ form.category }}
+        <ul>
+        {% for error in form.author.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
+                   
+        {{ form.submit }}
+    </fieldset>
+</form>
+
+{% endblock %}
