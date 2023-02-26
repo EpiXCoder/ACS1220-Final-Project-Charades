@@ -3,12 +3,15 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_bcrypt import Bcrypt
 from charades_app.config import Config
+from flask_marshmallow import Marshmallow
 import os
 
 app = Flask(__name__)
 app.config.from_object(Config)
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
+ma = Marshmallow(app)
 
 ###########################
 # Authentication

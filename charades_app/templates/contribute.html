@@ -24,14 +24,17 @@
         and then add the word. See below for 
         existing word categories.</small>
     </div>
-    <ul>
-        {% for category in all_categories %}
-            <li>{{ category.name }}</li>
-            <!-- <li><a href="/category/{{ category.id }}">{{ category.name }}</a></li> -->
-        {% endfor %}
-</ul>
+    <div>
+        <h3>Categories</h3>
+        <ul>
+            {% for category in all_categories %}
+                <li>{{ category.name }}</li>
+                <!-- <li><a href="/category/{{ category.id }}">{{ category.name }}</a></li> -->
+            {% endfor %}
+        </ul>
+    </div>
     {% endif %}
 </div>
 
 
-{% endblock %}s
+{% endblock %}

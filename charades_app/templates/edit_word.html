@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<h1>{{ word.name }}</h1>
+<a href="/words">Return to Word List Page</a>
+<h3>Word: {{ word.name }}</h3>
 
 <p>
     <strong>Category</strong>: 
-    {{ word.category }},
+    {{ word.category }}
 </p>
 
 {% if word.hint %}
@@ -17,7 +17,7 @@
 
 {% if current_user.is_authenticated %}
 
-    <form method="POST" action="{{ url_for('main.word_detail', word_id=word.id) }}">
+    <form method="POST" action="{{ url_for('main.edit_word', word_id=word.id) }}">
         {{ form.csrf_token }}
         <fieldset>
             <legend>Edit this word</legend>

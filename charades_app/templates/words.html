@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- <h2>Categories</h2> -->
+
+<!-- <ul>
+{% for category in all_categories %}
+    <li><a href="/category/{{ category.id }}">{{ category.name }}</a></li>
+{% endfor %}
+</ul> -->
+<div>
+    {% if current_user.is_authenticated %}
+    <div>
+        <h3>Word List by Category</h3>
+
+            {% for category in all_categories %}
+                <h3>{{ category.name }}</h3>
+                    <ul>
+                        {% for word in all_words %}
+                            {% if word.category_id == category.id %}
+                                <li><a href="/edit_word/{{ word.id }}">{{ word.name }}</a></li>
+                            <!-- <li><a href="/category/{{ category.id }}">{{ category.name }}</a></li> -->
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+            {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+
+{% endblock %}

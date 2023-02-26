@@ -1,14 +1,19 @@
 """Import packages and modules."""
-from flask import Blueprint, request, render_template, redirect, url_for, flash
+from os import abort
+import random
+from flask import Blueprint, request, render_template, redirect, url_for, flash, make_response, Flask, jsonify
 from flask_login import login_user, logout_user, login_required, current_user
+from sqlalchemy import func
 # from flask_login import login_user, logout_user, login_required, current_user
 from charades_app.models import Category, Word
 # Word, GameInstance, User
 from charades_app.main.forms import  CategoryForm, WordForm
 # WordForm,
 
+
 # Import app and db from events_app package so that we can run app
 from charades_app.extensions import app, db, bcrypt
+from charades_app.schema import CategorySchema, WordSchema
 
 main = Blueprint("main", __name__)
 
@@ -44,12 +49,13 @@ def create_category():
 @login_required
 def create_word():
     form = WordForm()
-
     # if form was submitted and contained no errors
-    if form.validate_on_submit(): 
+    if form.validate_on_submit():
+        cat_id = db.session.query(Category.id).filter(Category.name == form.category.name).first() 
         new_word = Word(
             name=form.name.data,
             hint=form.hint.data,
+            category_id = cat_id,
             category=form.category.data
         )
         db.session.add(new_word)
@@ -67,5 +73,54 @@ def contribute():
     all_categories = Category.query.all()
     return render_template('contribute.html', all_categories=all_categories)
 
+# Words
+@main.route('/words', methods=['GET'])
+@login_required
+def words():
+    all_words = Word.query.all()
+    all_categories = Category.query.all()
+    return render_template('words.html', all_words=all_words, all_categories=all_categories)
 
-# NEED TO CREATE GAME INSTANCE PAGE
+@main.route('/edit_word/<word_id>', methods=['GET', 'POST'])
+def edit_word(word_id):
+    word = Word.query.get(word_id)
+    form = WordForm(obj=word)
+    
+    # if form was submitted and contained no errors
+    if form.validate_on_submit():
+        # cat_id = db.session.query(Category.id).filter(Category.name == form.category.name).first() 
+        word.name=form.name.data
+        word.hint=form.hint.data
+        # word.category_id = form.category.data
+        word.category=form.category.data
+        
+        db.session.commit()
+
+        flash('Word was updated successfully.')
+        return redirect(url_for('main.edit_word', word_id=word_id))
+
+    return render_template('edit_word.html', word=word, form=form)
+
+@app.context_processor
+def inject_categories():
+    categories = Category.query.all()
+    selected_category = request.cookies.get('category')
+    return dict(categories=categories, selected_category=selected_category)
+
+# GAME INSTANCE
+@app.route('/category')
+def get_categories():
+    categories = Category.query.all()
+    category_schema = CategorySchema(many=True)
+    return jsonify(category_schema.dump(categories))
+
+@app.route('/category/<int:category_id>/words')
+def get_words(category_id):
+    words = Word.query.filter_by(category_id=category_id).all()
+    word_schema = WordSchema(many=True)
+    return jsonify(word_schema.dump(words))
+
+@main.route('/game')
+def game():
+    categories = Category.query.all()
+    return render_template('game.html')

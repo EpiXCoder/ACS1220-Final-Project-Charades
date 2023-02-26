@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<label for="category_select">Select a category:</label>
+    <select id="category_select">
+      {% for category in categories %}
+        <option value="{{ category.id }}">{{ category.name }}</option>
+      {% endfor %}
+    </select>
+    <div>
+      <h2 id="word_name"></h2>
+      <p id="hint"></p>
+      <button id="prev_button">Previous</button>
+      <button id="next_button">Next</button>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</ul>
+
+{% endblock %}

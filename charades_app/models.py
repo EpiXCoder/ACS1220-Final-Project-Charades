@@ -12,31 +12,33 @@ class Word(db.Model):
 
   # The category the word belongs to
   category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)
-  category = db.relationship('Category', secondary='word_category')
-  
+  # category_name = db.Column(db.String(100), nullable=False)
+  category = db.relationship('Category', back_populates = 'word')
+    # category = db.relationship('Category', secondary='word_category', back_populates = 'word')
+  # 
   def __str__(self):
       return f'<Word: {self.name}>'
 
   def __repr__(self):
-      return f'<Word: {self.name}>'
+      return f'Word(word={self.name}, category={self.category})'
 
 class Category(db.Model):
   """Category model"""
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.String(100), nullable=False, unique=True)
-  word = db.relationship(
-      'Word', secondary='word_category')
+  word = db.relationship('Word', back_populates = 'category')
+    # word = db.relationship('Word', secondary='word_category', back_populates = 'category')
 
   def __str__(self):
-      return f'<Category: {self.name}>'
+      return f'{self.name}'
 
   def __repr__(self):
-      return f'<Category: {self.name}>'
+      return f'Category(name={self.name})'
 
-word_category_table = db.Table('word_category',
-  db.Column('word_id', db.Integer, db.ForeignKey('word.id')),
-  db.Column('category_id', db.Integer, db.ForeignKey('category.id'))
-)
+# word_category_table = db.Table('word_category',
+#   db.Column('word_id', db.Integer, db.ForeignKey('word.id')),
+#   db.Column('category_id', db.Integer, db.ForeignKey('category.id'))
+# )
 
 class Gameinstance(db.Model):
   """Game Instance model"""
