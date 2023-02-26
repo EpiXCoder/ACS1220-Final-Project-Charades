@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import DataRequired, Length, ValidationError, Email
+from wtforms.validators import DataRequired, Length, ValidationError, Email, email_validator
 from charades_app.models import User
 from charades_app.extensions import bcrypt
 
@@ -12,7 +12,7 @@ class SignUpForm(FlaskForm):
         validators=[DataRequired(), Length(min=3, max=80)])
     lastname = StringField('Last Name',
         validators=[DataRequired(), Length(min=3, max=80)])
-    email = StringField('User Name',
+    email = StringField('Email',
         validators=[DataRequired(), Email("This field requires a valid email address")])
     submit = SubmitField('Sign Up')
 

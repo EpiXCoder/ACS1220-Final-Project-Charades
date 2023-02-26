@@ -41,8 +41,8 @@ word_category_table = db.Table('word_category',
 class Gameinstance(db.Model):
   """Game Instance model"""
   id = db.Column(db.Integer, primary_key=True)
-  user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-  user = db.relationship('User', secondary='user_gameinstance')
+  # user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+  # user = db.relationship('User', secondary='user_gameinstance')
   category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)
   category = db.Column(db.String, db.ForeignKey('category.name'), nullable=False)
   # word_array = db.Column(ARRAY(db.String), nullable = False)
@@ -50,10 +50,10 @@ class Gameinstance(db.Model):
   def __repr__(self):
       return f'<GameInstance: {self.id}>'
 
-user_gameinstance_table = db.Table('user_gameinstance',
-  db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
-  db.Column('gameinstance_id', db.Integer, db.ForeignKey('gameinstance.id')),
-)
+# user_gameinstance_table = db.Table('user_gameinstance',
+#   db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
+#   db.Column('gameinstance_id', db.Integer, db.ForeignKey('gameinstance.id')),
+# )
 
 
 class User(UserMixin, db.Model):
@@ -63,10 +63,10 @@ class User(UserMixin, db.Model):
   firstname = db.Column(db.String(80), nullable=False)
   lastname = db.Column(db.String(80), nullable=False)
   email = db.Column(db.String(100), nullable=False)
-  gameinstance_id = db.Column(db.Integer, db.ForeignKey('gameinstance.id'), nullable=False)
-  gameinstance = db.relationship('Gameinstance', secondary='user_gameinstance')
+  # gameinstance_id = db.Column(db.Integer, db.ForeignKey('gameinstance.id'), nullable=False)
+  # gameinstance = db.relationship('Gameinstance', secondary='user_gameinstance')
 
   def __repr__(self):
-      return f'<User: {self.username}>'
+      return f'<User: {self.id}>'
 
 

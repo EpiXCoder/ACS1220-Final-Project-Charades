@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- <h2>Categories</h2> -->
+
+<!-- <ul>
+{% for category in all_categories %}
+    <li><a href="/category/{{ category.id }}">{{ category.name }}</a></li>
+{% endfor %}
+</ul> -->
+<div>
+    {% if current_user.is_authenticated %}
+    <!-- <a href="/create_book">Create Book</a>
+    <a href="/create_author">Create Author</a>
+    <a href="/create_genre">Create Genre</a> -->
+    <div>
+    <a href="/create_category">Add Game Category</a>
+    <a href="/create_word">Add Word</a>
+    <small>A new word must be assigned a category. 
+        If you would like to add a words to 
+        a new category that does not exist in our database. 
+        Please add the category first, 
+        and then add the word. See below for 
+        existing word categories.</small>
+    </div>
+    <ul>
+        {% for category in all_categories %}
+            <li>{{ category.name }}</li>
+            <!-- <li><a href="/category/{{ category.id }}">{{ category.name }}</a></li> -->
+        {% endfor %}
+</ul>
+    {% endif %}
+</div>
+
+
+{% endblock %}s

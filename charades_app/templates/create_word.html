@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form method="POST" action="{{ url_for('main.create_book') }}">
+<form method="POST" action="{{ url_for('main.create_word') }}">
     {{ form.csrf_token }}
     <fieldset>
         <legend>Enter a word</legend>
@@ -26,7 +26,7 @@
         {{ form.category.label }}
         {{ form.category }}
         <ul>
-        {% for error in form.author.errors %}
+        {% for error in form.category.errors %}
             <li class="error">{{ error }}</li>
         {% endfor %}
         </ul>
