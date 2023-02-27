@@ -4,9 +4,7 @@ import random
 from flask import Blueprint, request, render_template, redirect, url_for, flash, make_response, Flask, jsonify
 from flask_login import login_user, logout_user, login_required, current_user
 from sqlalchemy import func
-# from flask_login import login_user, logout_user, login_required, current_user
 from charades_app.models import Category, Word
-# Word, GameInstance, User
 from charades_app.main.forms import  CategoryForm, WordForm
 # WordForm,
 
