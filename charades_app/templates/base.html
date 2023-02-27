@@ -2,14 +2,12 @@
 <html>
     <head>
         <title>Charades App</title>
-        <link rel="stylesheet" href="/static/style.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-        <!-- <script src="{{ url_for('static', filename='script.js') }}"></script> -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     </head>
     <body>
         <div id="content">
-            <nav>
+   
+            <nav id="nav-bar">
                 <a href="/">Home</a>
                 <div>
                     {% if current_user.is_authenticated %}
@@ -23,9 +21,12 @@
                     {% endif %}
                 </div>
             </nav>
+            <header class="header">
+                <h1 class="banner">CrowdSource Charades</h1>   
+            </header>
 
             {% if current_user.is_authenticated %}
-            <p>You are logged in as {{ current_user.username }}</p>
+            <small>You are logged in as {{ current_user.username }}.</small>
             {% endif %}
 
             {% for message in get_flashed_messages() %}

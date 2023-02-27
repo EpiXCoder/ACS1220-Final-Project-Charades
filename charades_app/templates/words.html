@@ -1,21 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<!-- <h2>Categories</h2> -->
-
-<!-- <ul>
-{% for category in all_categories %}
-    <li><a href="/category/{{ category.id }}">{{ category.name }}</a></li>
-{% endfor %}
-</ul> -->
 <div>
     {% if current_user.is_authenticated %}
     <div>
+        <div class="ret-con-container">
+            <a class="return-contribute" href="/contribute">Return to Contribute Page</a>
+        </div>        
         <h3>Word List by Category</h3>
+        <small>Click on words to edit.</small>
 
             {% for category in all_categories %}
-                <h3>{{ category.name }}</h3>
+                <p><strong>{{ category.name }}</strong></p>
                     <ul>
                         {% for word in all_words %}
                             {% if word.category_id == category.id %}

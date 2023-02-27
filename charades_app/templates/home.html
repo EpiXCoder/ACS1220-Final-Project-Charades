@@ -2,26 +2,19 @@
 
 {% block content %}
 
-<!-- <h2>Categories</h2> -->
-
-<!-- <ul>
-{% for category in all_categories %}
-    <li><a href="/category/{{ category.id }}">{{ category.name }}</a></li>
-{% endfor %}
-</ul> -->
 <div>
     {% if current_user.is_authenticated %}
-    <!-- <a href="/create_book">Create Book</a>
-    <a href="/create_author">Create Author</a>
-    <a href="/create_genre">Create Genre</a> -->
-    <div>
-    <a href="/game">Play Game</a>
-    <a href="/contribute">Contribute to Game Database</a>
+    <div class="user-options">
+        <a href="/game">Play Game</a>
+        <a href="/contribute">Contribute to Game Database</a>
     </div>
     {% else %}
-    <h1>CrowdSource Charades</h1>
-    <small>Ever wanted to have a curated charades game just for you and your friends? Look no further. This app is built with unique charades enthusists like you in mind! </small>
-    <p class="start-message">Sign Up or Sign In to Start</p>
+    <div class="intro">
+    <p>Ever wanted to have a curated charades game just for you and your friends? </p>
+    <p>Look no further! </p>
+    <p>This app is built with unique charades enthusists like you in mind.</p>
+    <a href="/login">Log in to start</a>
+    </div>
     {% endif %}
 </div>
 

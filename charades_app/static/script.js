@@ -15,6 +15,7 @@ function getWords(categoryId) {
 function updateWordDisplay() {
   var word = currentWords[currentWordIndex];
   document.getElementById('word_name').innerHTML = word.name;
+  document.getElementById('hint-header').innerHTML = 'Hint';
   document.getElementById('hint').innerHTML = word.hint;
 }
 

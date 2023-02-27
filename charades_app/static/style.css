@@ -1,16 +1,55 @@
+
+@font-face {
+    font-family: 'Brady Bunch Remastered';
+    src: url('BradyBunchRemastered.woff2') format('woff2'),
+        url('BradyBunchRemastered.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #eee;
+    background-color:#6b5b95;
     font-family: 'Open Sans', sans-serif;
+    color: white;
+    
 }
 
 #content {
-    width: 70%;
-    background-color: white;
+    width: 80%;
+    background-color: #878f99;
     padding: 20px;
+    min-height: 500px;
+    margin: auto;
 }
+
+.header {
+    background-color: #878f99;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    
+}
+
+.banner {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-family: Brady Bunch Remastered;
+    font-size: 80px;
+    color: white;
+    text-shadow: 5px 5px 5px #6b5b95;
+}
+/* #nav-bar {
+
+} */
 
 nav {
     width: 100%;
@@ -19,12 +58,60 @@ nav {
     justify-content: space-between;
 }
 
-nav a {
-    color: navy;
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    color: white;
+    /* margin-bottom: 10px; */
+}
+
+.intro p {
+    margin: 0%;
+    padding: 0%;
+}
+.intro a { 
+    margin-top: 30px;
+}
+.return-contribute{
+    margin-top: 20px;
+}
+
+nav a, .intro a, .user-options a, .contribute a, .return-contribute, #prev_button, #next_button{
+    color: rgb(255, 255, 255);
     text-decoration: none;
-    border: 1px solid black;
+    border: 1px solid #6b5b95;
+    border-radius: 5px;
     padding: 1px 5px;
     font-size: 1.2em;
+    background-color: #a2b9bc;
+    box-shadow: 5px 5px 5px #6b5b95;
+}
+
+.user-options, .contribute {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ret-con-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.contribute-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-options a, .contribute a  {
+    margin: 20px;
 }
 
 fieldset {
@@ -43,10 +130,58 @@ fieldset input {
 }
 
 input[type=submit] {
-    padding: 10px 20px;
+    padding: 5px 5px;
     align-self: flex-end;
+    font-size: 1.2em;
+    background-color: #a2b9bc;
+    box-shadow: 5px 5px 5px #6b5b95;
+    border: 1px solid #6b5b95;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
 }
 
 li.error {
     color: red;
+}
+
+#word_name{
+    font-size: 30px;
+}
+
+.game-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-buttons button{
+    margin: 10px;
+}
+
+.word-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #b2ad7f;
+    width: fit-content;
+    max-width: 90%;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-top: 15px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px #3d3a46;
+    /* padding: 10px; */
+}
+
+/* #word-name{
+    margin-top: 0%;
+} */
+#hint {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+
+    margin-bottom: 24.9px;
 }

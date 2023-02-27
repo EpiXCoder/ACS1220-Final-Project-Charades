@@ -1,19 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<label for="category_select">Select a category:</label>
+<div>
+  <label for="category_select">Select a category:</label>
     <select id="category_select">
+        <option value=""></option>
       {% for category in categories %}
         <option value="{{ category.id }}">{{ category.name }}</option>
       {% endfor %}
     </select>
     <div>
-      <h2 id="word_name"></h2>
-      <p id="hint"></p>
-      <button id="prev_button">Previous</button>
-      <button id="next_button">Next</button>
+      <div class="word-card">
+        <h2 id="word_name"></h2>
+        <strong><small id="hint-header"></small></strong>
+        <small id="hint"></small>
+      </div>
+      <div class="game-buttons">
+        <button id="prev_button">Prev Word</button>
+        <button id="next_button">Next Word</button>
+      </div>
     </div>
+</div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
-</ul>
-
 {% endblock %}
