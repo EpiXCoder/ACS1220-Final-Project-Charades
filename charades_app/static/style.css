@@ -144,6 +144,10 @@ fieldset input {
     color: #e4a99a;
 }
 
+.word-list-cat{
+    margin-bottom: 0;
+}
+
 input[type=submit] {
     padding: 5px 5px;
     align-self: flex-end;
