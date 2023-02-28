@@ -30,7 +30,7 @@
             {% endif %}
 
             {% for message in get_flashed_messages() %}
-                <p>{{ message }}</p>
+                <p class="flash-message">{{ message }}</p>
             {% endfor %}
 
             {% block content %}{% endblock %}

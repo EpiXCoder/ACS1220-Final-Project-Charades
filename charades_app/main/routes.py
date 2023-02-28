@@ -99,6 +99,17 @@ def edit_word(word_id):
 
     return render_template('edit_word.html', word=word, form=form)
 
+@app.route('/delete_word/<word_id>', methods=['POST'])
+@login_required
+def delete_word(word_id):
+    print(request.method)
+    word = Word.query.get(word_id)
+    db.session.delete(word)
+    db.session.commit()
+    flash('Word has been deleted.', 'success')
+    return redirect(url_for('main.words'))
+
+
 @app.context_processor
 def inject_categories():
     categories = Category.query.all()

@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<a href="/words">Return to Word List Page</a>
+<div>
+    <p></p>
+    <a href="/words" class="return-word">Return to Words List Page</a>
+</div>
+
 <h3>Word: {{ word.name }}</h3>
 
 <p>
@@ -15,7 +19,14 @@
     </p>
 {% endif %}
 
+
+
 {% if current_user.is_authenticated %}
+    <form id="delete-word-form" action="{{ url_for('delete_word', word_id=word.id) }}" method="POST">
+        {{ form.hidden_tag() }}
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit" class="btn btn-danger">Delete Word</button>
+    </form>
 
     <form method="POST" action="{{ url_for('main.edit_word', word_id=word.id) }}">
         {{ form.csrf_token }}
@@ -38,4 +49,15 @@
 
 {% endif %}
 
+{% endblock %}
+{% block scripts %}
+  <script>
+    var deleteWordForm = document.getElementById('delete-word-form');
+    deleteWordForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      if (confirm('Are you sure you want to delete this word?')) {
+        deleteWordForm.submit();
+      }
+    });
+  </script>
 {% endblock %}

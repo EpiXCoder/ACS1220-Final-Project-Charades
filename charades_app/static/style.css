@@ -79,12 +79,12 @@ nav {
     margin-top: 20px;
 }
 
-nav a, .intro a, .user-options a, .contribute a, .return-contribute, #prev_button, #next_button{
+nav a, .intro a, .user-options a, .return-word, .contribute a, .return-contribute, #prev_button, #next_button{
     color: rgb(255, 255, 255);
     text-decoration: none;
     border: 1px solid #6b5b95;
     border-radius: 5px;
-    padding: 1px 5px;
+    padding: 5px;
     font-size: 1.2em;
     background-color: #a2b9bc;
     box-shadow: 5px 5px 5px #6b5b95;
@@ -129,6 +129,21 @@ fieldset input {
     padding: 5px;
 }
 
+.btn{
+    padding: 5px 5px;
+    /* align-self: flex-end; */
+    font-size: 1.2em;
+    background-color: #ee7a85;
+    box-shadow: 5px 5px 5px #6b5b95;
+    border: 1px solid #6b5b95;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+}
+
+.flash-message {
+    color: #e4a99a;
+}
+
 input[type=submit] {
     padding: 5px 5px;
     align-self: flex-end;
@@ -141,7 +156,7 @@ input[type=submit] {
 }
 
 li.error {
-    color: red;
+    color: rgb(255, 0, 0);
 }
 
 #word_name{
