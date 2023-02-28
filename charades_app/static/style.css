@@ -185,11 +185,12 @@ li.error {
     align-items: center;
     background-color: #b2ad7f;
     width: fit-content;
+    min-width: 320px;
     max-width: 90%;
     flex-wrap: wrap;
     margin: auto;
     margin-top: 15px;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 5px 5px 5px #3d3a46;
     /* padding: 10px; */
 }
