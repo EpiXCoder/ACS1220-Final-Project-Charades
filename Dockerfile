@@ -15,10 +15,10 @@ COPY . .
 
 # Set environment variables for Flask
 ENV FLASK_APP=app.py
-ENV FLASK_ENV=development
+# ENV FLASK_ENV=development
 
 # Inform Docker that the container listens on the specified port at runtime
 EXPOSE 5003
 
 # Define the command to run the application using the Flask built-in server
-CMD ["python", "app.py"]
+CMD ["gunicorn", "-b", "0.0.0.0:5003", "app:app"]
