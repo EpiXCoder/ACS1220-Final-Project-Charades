@@ -10,6 +10,7 @@ app = Flask(__name__)
 app.config.from_object(Config)
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 # app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('SQLALCHEMY_DATABASE_URI', 'sqlite:///charades_app/database.db')
 
 
 db = SQLAlchemy(app)
