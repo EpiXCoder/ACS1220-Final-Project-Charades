@@ -1,34 +1,24 @@
+# Charades App
+
 ![Uptime Robot status](https://img.shields.io/uptimerobot/status/m795372744-caee246b8a723092c0dd9c0f)
 
-## Prerequisites
+## Description
+Introducing Charades – The ultimate charades app that not only lets you play the time-honored game with friends and family but also offers a unique twist – the power to contribute!
 
-In order for this project's dependencies to install, you'll need PostgreSQL running on your computer.
+### Features:
 
-Install it by opening your terminal, and pasting the following command:
+- Endless Fun: Dive into an extensive database filled with thousands of words and phrases, from classic favorites to the most unexpected challenges.
 
-```bash
-brew install postgresql
-```
+- Contribute to the Game: Think you’ve got a great idea for a charade? Add it to our ever-growing database and let players around the world guess and act out your suggestions.
 
-## Setup
-
-Clone this repository to your computer.
-
-
-**To run the code**, navigate to the project folder and run the following to install the required packages:
-
-```
-pip3 install -r requirements.txt
-```
-
-Then, copy the `.env.example` file to `.env`:
-
-```
-cp .env.example .env
-```
-
-Then you can run the following to run the Flask server:
-
-```
-python3 app.py
-```
+## Available with Docker
+- To run the app with docker
+  ```
+  docker build -t charades .
+  docker run -p 3001:3001 charades
+  ```
+- To run the app with docker-compose
+  ```
+  docker-compose build
+  docker-compose up
+  ```
