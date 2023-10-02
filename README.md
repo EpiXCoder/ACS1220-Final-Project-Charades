@@ -1,6 +1,6 @@
 # CrowdSource Charades
 
-![Uptime Robot status](https://img.shields.io/uptimerobot/status/m795372744-caee246b8a723092c0dd9c0f) ![Uptime Robot ratio (7 days)](https://img.shields.io/uptimerobot/ratio/7/m795372744-caee246b8a723092c0dd9c0f)
+![Uptime Robot status](https://img.shields.io/uptimerobot/status/m795372744-caee246b8a723092c0dd9c0f) ![Uptime Robot ratio (7 days)](https://img.shields.io/uptimerobot/ratio/7/m795372744-caee246b8a723092c0dd9c0f) ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/vithushar/charades)
 
 [Deployed](http://charades.dev.vithusharavirajan.me/) in CapRover.
 
