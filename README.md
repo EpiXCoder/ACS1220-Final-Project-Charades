@@ -1,9 +1,9 @@
-# Charades App
+# CrowdSource Charades
 
 ![Uptime Robot status](https://img.shields.io/uptimerobot/status/m795372744-caee246b8a723092c0dd9c0f)
 
 ## Description
-Introducing Charades – The ultimate charades app that not only lets you play the time-honored game with friends and family but also offers a unique twist – the power to contribute!
+Introducing CrowdSource Charades – The ultimate charades app that not only lets you play the time-honored game with friends and family but also offers a unique twist – the power to contribute!
 
 ### Features:
 
