@@ -1,4 +1,5 @@
-
+![Uptime](https://img.shields.io/uptimerobot/status/m795372744-caee246b8a723092c0dd9c0f
+)
 ## Prerequisites
 
 In order for this project's dependencies to install, you'll need PostgreSQL running on your computer.
