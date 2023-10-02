@@ -17,7 +17,7 @@ Introducing CrowdSource Charades – The ultimate charades app that not only let
 - To run the app with docker
   ```
   docker build -t charades .
-  docker run -p 3001:3001 charades
+  docker run -p 5003:5003 charades
   ```
 - To run the app with docker-compose
   ```
