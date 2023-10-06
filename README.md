@@ -1,9 +1,11 @@
-# Charades App
+# CrowdSource Charades
 
-![Uptime Robot status](https://img.shields.io/uptimerobot/status/m795372744-caee246b8a723092c0dd9c0f)
+![Uptime Robot status](https://img.shields.io/uptimerobot/status/m795372744-caee246b8a723092c0dd9c0f) ![Uptime Robot ratio (7 days)](https://img.shields.io/uptimerobot/ratio/7/m795372744-caee246b8a723092c0dd9c0f) ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/vithushar/charades)
+
+[Deployed](http://charades.dev.vithusharavirajan.me/) in CapRover.
 
 ## Description
-Introducing Charades – The ultimate charades app that not only lets you play the time-honored game with friends and family but also offers a unique twist – the power to contribute!
+Introducing CrowdSource Charades – The ultimate charades app that not only lets you play the time-honored game with friends and family but also offers a unique twist – the power to contribute!
 
 ### Features:
 
@@ -15,7 +17,7 @@ Introducing Charades – The ultimate charades app that not only lets you play t
 - To run the app with docker
   ```
   docker build -t charades .
-  docker run -p 3001:3001 charades
+  docker run -p 5003:5003 charades
   ```
 - To run the app with docker-compose
   ```
